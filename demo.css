@@ -49,13 +49,13 @@
 
 #container .next-btn {
 	position: absolute;
-	left: 80px;
 	top: 50%;
+	right: 50px;
 	cursor: pointer;
 }
 
 #container .prev-btn {
-	right: 50px;
+	left: 80px;
 	position: absolute;
 	top: 50%;
 	cursor: pointer;

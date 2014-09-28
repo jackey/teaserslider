@@ -4,7 +4,7 @@
 	$.fn.teaserslider = function (options) {
 		var default_values = {
 			speed: 1 * 1000, // 动画时间 默认1s
-			autoplay: true, // 是否自动播放
+			autoplay: false, // 是否自动播放
 			autotime: 1* 1500, // 自动播放循环时间
 			navigation: false, // 是否有导航
 			easing: "swing",
