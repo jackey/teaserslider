@@ -7,6 +7,7 @@
 			autoplay: true, // 是否自动播放
 			autotime: 1* 1500, // 自动播放循环时间
 			navigation: false, // 是否有导航
+			easing: "swing",
 		};
 
 		$.extend(default_values, options);
