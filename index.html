@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="./jquery.js" type="text/javascript"></script>
+	<script src="./jquery.teaserslider.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="./demo.css">
+	<title>Demo Teaser slider</title>
+	<script>
+		$(function () {
+			$("#container").teaserslider({
+				speed: 500
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="container">
+		<div class="wrapper">
+			<ul class="slider-items clearfix">
+				<li class="slider-item item">
+					<div class="content">
+						<div class="title">Demo Slider Title1</div>
+						<img src="./images/demo1.jpg" alt="">
+					</div>
+				</li>
+				<li class="slider-item item">
+					<div class="content">
+						<div class="title">Demo Slider Title2</div>
+						<img src="./images/demo2.jpg" alt="">
+					</div>
+				</li>
+				<li class="slider-item item">
+					<div class="content">
+						<div class="title">Demo Slider Title3</div>
+						<img src="./images/demo3.jpg" alt="">
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
