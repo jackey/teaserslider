@@ -18,9 +18,9 @@
 		items.width(100 * $(".slider-item", items).size() + "%");
 
 		// Next button
-		var next_btn = $("<div class='btn next-btn'>Next</div>"),
+		var next_btn = $("<div class='next-btn'>Next</div>"),
 		// Previous button
-			prev_btn = $("<div class='btn prev-btn'>Prev</div>");
+			prev_btn = $("<div class='prev-btn'>Prev</div>");
 		container.append(next_btn).append(prev_btn);
 
 		// Slide next
