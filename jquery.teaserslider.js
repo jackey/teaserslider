@@ -12,7 +12,8 @@
 
 		$.extend(default_values, options);
 		var container = $(this),
-		items = $(".slider-items", container);
+		items = $(".slider-items", container),
+		autoplay_handler = null;
 
 		items.width(100 * $(".slider-item", items).size() + "%");
 
@@ -24,6 +25,10 @@
 
 		// Slide next
 		$(next_btn).click(function () {
+			if (autoplay_handler) {
+				clearInterval(autoplay_handler);
+				autoplay_handler = false;
+			}
 			var item_w = $(".slider-item", items).width();
 			var index = container.data("index");
 			if (typeof index == "undefined") index = 0;
@@ -37,11 +42,15 @@
 
 			items.animate({
 				"margin-left": parseInt(- (index * item_w)) + "px",
-			}, speed);
+			}, default_values["speed"]);
 		});
 
 		// Slide Prev
 		$(prev_btn).click(function () {
+			if (autoplay_handler) {
+				clearInterval(autoplay_handler);
+				autoplay_handler = false;
+			}
 			var item_w = $(".slider-item", items).width();
 			var index = container.data("index");
 			if (typeof index == "undefined") index = 0;
@@ -60,7 +69,7 @@
 
 		// 循环播放
 		if (default_values["autoplay"]) {
-			setInterval(function() {
+			function auto_play_fn () {
 				var item_w = $(".slider-item", items).width(),
 					index = container.data("index");
 				if (typeof index == "undefined") index = 0;
@@ -72,9 +81,16 @@
 				container.data("index", index);
 				items.animate({
 					"margin-left": parseInt(- (index * item_w)) + "px",
-				});
+				}, default_values["speed"]);
+			}
+			autoplay_handler = setInterval(auto_play_fn, default_values['autotime']);
 
-			}, default_values['autotime']);
+			setInterval(function (){
+				if (autoplay_handler == false) {
+					autoplay_handler = setInterval(auto_play_fn, default_values['autotime']);
+				}
+			}, 2000);
+
 		}
 	}
 })(jQuery);
